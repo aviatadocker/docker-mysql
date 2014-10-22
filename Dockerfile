@@ -9,6 +9,12 @@ RUN \
   echo "mysqld_safe &" > /tmp/config && \
   echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config && \
   echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\" WITH GRANT OPTION;'" >> /tmp/config && \
+  echo "mysql -e 'CREATE DATABASE ls_test_db;'" >> /tmp/config && \
+  echo "mysql -e 'GRANT ALL PRIVILEGES ON ls_test_db.* TO \"ls_test_user\"@\"%\" IDENTIFIED BY \"lspw\";'" >> /tmp/config && \
+  echo "mysql -e 'CREATE DATABASE ls_dev_db;'" >> /tmp/config && \
+  echo "mysql -e 'GRANT ALL PRIVILEGES ON ls_dev_db.* TO \"ls_dev_user\"@\"%\" IDENTIFIED BY \"lspw\";'" >> /tmp/config && \
+  echo "mysql -e 'CREATE DATABASE ls_jobs_db;'" >> /tmp/config && \
+  echo "mysql -e 'GRANT ALL PRIVILEGES ON ls_jobs_db.* TO \"ls_job_user\"@\"%\" IDENTIFIED BY \"lspw\";'" >> /tmp/config && \
   bash /tmp/config && \
   rm -f /tmp/config
 
