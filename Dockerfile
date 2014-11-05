@@ -20,8 +20,6 @@ RUN  date -u +"%Y-%m-%d %H:%M:%S" && apt-get update \
   && date -u +"%Y-%m-%d %H:%M:%S" && rm -f /tmp/config \
   && date -u +"%Y-%m-%d %H:%M:%S"
 
-VOLUME ["/etc/mysql", "/var/lib/mysql"]
-
 CMD ["mysqld_safe"]
 
 EXPOSE 3306
