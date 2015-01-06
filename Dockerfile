@@ -5,7 +5,7 @@ FROM customercentrix/ubuntu
 RUN  date -u +"%Y-%m-%d %H:%M:%S" && apt-get update \
   && date -u +"%Y-%m-%d %H:%M:%S" && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server-5.6 \
   && date -u +"%Y-%m-%d %H:%M:%S" && rm -rf /var/lib/apt/lists/* \
-  && date -u +"%Y-%m-%d %H:%M:%S" && sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf \
+  && date -u +"%Y-%m-%d %H:%M:%S" && sed -i 's/^\(bind-address\s\).*/\1 0\.0\.0\.0\nskip-name-resolve/' /etc/mysql/my.cnf \
   && date -u +"%Y-%m-%d %H:%M:%S" && sed -i 's/^\(log_error\s.*\)/# \1/' /etc/mysql/my.cnf \
   && date -u +"%Y-%m-%d %H:%M:%S" && echo "mysqld_safe &" > /tmp/config \
   && date -u +"%Y-%m-%d %H:%M:%S" && echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config \
