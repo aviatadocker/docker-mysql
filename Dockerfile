@@ -17,6 +17,8 @@ RUN  date -u +"%Y-%m-%d %H:%M:%S" && apt-get update \
   && date -u +"%Y-%m-%d %H:%M:%S" && echo "mysql -e 'GRANT ALL PRIVILEGES ON ls_dev_db.* TO \"ls_dev_user\"@\"%\" IDENTIFIED BY \"lspw\";'" >> /tmp/config \
   && date -u +"%Y-%m-%d %H:%M:%S" && echo "mysql -e 'CREATE DATABASE ls_jobs_db;'" >> /tmp/config \
   && date -u +"%Y-%m-%d %H:%M:%S" && echo "mysql -e 'GRANT ALL PRIVILEGES ON ls_jobs_db.* TO \"ls_job_user\"@\"%\" IDENTIFIED BY \"lspw\";'" >> /tmp/config \
+  && date -u +"%Y-%m-%d %H:%M:%S" && echo "mysql -e 'CREATE DATABASE wb_dev_db;'" >> /tmp/config \
+  && date -u +"%Y-%m-%d %H:%M:%S" && echo "mysql -e 'GRANT ALL PRIVILEGES ON wb_dev_db.* TO \"wb_dev_user\"@\"%\" IDENTIFIED BY \"wbpw\";'" >> /tmp/config \
   && date -u +"%Y-%m-%d %H:%M:%S" && bash /tmp/config \
   && date -u +"%Y-%m-%d %H:%M:%S" && rm -f /tmp/config \
   && date -u +"%Y-%m-%d %H:%M:%S"
